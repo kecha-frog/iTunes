@@ -13,6 +13,7 @@ final class AppDetailViewController: UIViewController {
     public var app: ITunesApp
     
     lazy var headerViewController = AppDetailHeaderViewController(app: self.app)
+    lazy var descriptionViewController = AppDetailDescriptionViewController(app: self.app)
     
     // MARK: - Lifecycle
     
@@ -38,6 +39,7 @@ final class AppDetailViewController: UIViewController {
         self.navigationItem.largeTitleDisplayMode = .never
         
         addHeaderViewController()
+        addDescriptionViewController()
     }
     
     private func addHeaderViewController() {
@@ -50,6 +52,19 @@ final class AppDetailViewController: UIViewController {
             self.headerViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.headerViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
             self.headerViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
+        ])
+    }
+
+    private func addDescriptionViewController() {
+        addChild(descriptionViewController)
+        view.addSubview(descriptionViewController.view)
+        descriptionViewController.didMove(toParent: self)
+
+        descriptionViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.descriptionViewController.view.topAnchor.constraint(equalTo: self.headerViewController.view.bottomAnchor),
+            self.descriptionViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.descriptionViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor)
         ])
     }
 }
