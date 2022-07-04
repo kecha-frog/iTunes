@@ -1,5 +1,5 @@
 //
-//  AppDetailScreenshotsCell.swift
+//  ScreenshotsCell.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Ke4a on 02.07.2022.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AppDetailScreenshotsCell: UICollectionViewCell {
+class ScreenshotsCell: UICollectionViewCell {
     // MARK: - Visual Components
 
     private lazy var imageView: UIImageView = {
@@ -20,7 +20,7 @@ class AppDetailScreenshotsCell: UICollectionViewCell {
 
     // MARK: - Static Properties
 
-    static var identifier = "AppDetailScreenshotsCell"
+    static var identifier = "ScreenshotsCell"
 
     // MARK: - Initialization
 
@@ -37,12 +37,12 @@ class AppDetailScreenshotsCell: UICollectionViewCell {
 
     private func setupUI() {
         contentView.addSubview(imageView)
-
+        
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            imageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5)
         ])
     }
 

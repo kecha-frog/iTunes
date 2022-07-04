@@ -18,6 +18,8 @@ class AppDetailScreenshotsViewController: UIViewController {
 
     private let imageDownloader = ImageDownloader()
 
+    private var cache: [String: UIImage?] = [:]
+
     private let app: ITunesApp
 
     // MARK: - Init
@@ -44,9 +46,22 @@ class AppDetailScreenshotsViewController: UIViewController {
         appDetailScreenshotsView.collectionView.dataSource = self
         appDetailScreenshotsView.collectionView.delegate = self
 
-        appDetailScreenshotsView.collectionView.register(AppDetailScreenshotsCell.self, forCellWithReuseIdentifier: AppDetailScreenshotsCell.identifier)
+        appDetailScreenshotsView.collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: ScreenshotsCell.identifier)
     }
 
+    private func showModalScreenshots(_ index: IndexPath) {
+        let vc = ScreenshotsViewController(app.screenshotUrls, cache)
+        vc.modalPresentationStyle = .overCurrentContext
+        present(vc, animated: true)
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension AppDetailScreenshotsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showModalScreenshots(indexPath)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -66,12 +81,17 @@ extension AppDetailScreenshotsViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = appDetailScreenshotsView.collectionView.dequeueReusableCell(withReuseIdentifier: AppDetailScreenshotsCell.identifier, for: indexPath) as? AppDetailScreenshotsCell else { return UICollectionViewCell() }
+        guard let cell = appDetailScreenshotsView.collectionView.dequeueReusableCell(withReuseIdentifier: ScreenshotsCell.identifier, for: indexPath) as? ScreenshotsCell else { return UICollectionViewCell() }
         let url = app.screenshotUrls[indexPath.row]
-        imageDownloader.getImage(fromUrl:url ) { (image, _) in
+
+        if let image = cache[url] {
             cell.configure(image)
+        } else {
+            imageDownloader.getImage(fromUrl:url ) { [weak self ] (image, _) in
+                self?.cache[url] = image
+                cell.configure(image)
+            }
         }
-    
         return cell
     }
 }
