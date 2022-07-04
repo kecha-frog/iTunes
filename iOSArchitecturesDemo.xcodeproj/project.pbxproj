@@ -29,6 +29,9 @@
 		F229F0BC28704A6000773BD6 /* AppDetailDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0BB28704A6000773BD6 /* AppDetailDescriptionView.swift */; };
 		F229F0C028704EFA00773BD6 /* AppDetailDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0BF28704EFA00773BD6 /* AppDetailDescriptionViewController.swift */; };
 		F229F0C228705DEE00773BD6 /* DateFormatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C128705DEE00773BD6 /* DateFormatter+Extensions.swift */; };
+		F229F0C42870868A00773BD6 /* AppDetailScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C32870868A00773BD6 /* AppDetailScreenshotsViewController.swift */; };
+		F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */; };
+		F229F0C92870904300773BD6 /* AppDetailScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C82870904300773BD6 /* AppDetailScreenshotsCell.swift */; };
 		F8114FBE22A3DBF400102830 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FBD22A3DBF400102830 /* SearchView.swift */; };
 		F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FC022A3E5EE00102830 /* AppCellModel.swift */; };
 		F8114FC522A3E77500102830 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FC422A3E77500102830 /* AppDetailView.swift */; };
@@ -63,6 +66,9 @@
 		F229F0BB28704A6000773BD6 /* AppDetailDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailDescriptionView.swift; sourceTree = "<group>"; };
 		F229F0BF28704EFA00773BD6 /* AppDetailDescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailDescriptionViewController.swift; sourceTree = "<group>"; };
 		F229F0C128705DEE00773BD6 /* DateFormatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extensions.swift"; sourceTree = "<group>"; };
+		F229F0C32870868A00773BD6 /* AppDetailScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsViewController.swift; sourceTree = "<group>"; };
+		F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsView.swift; sourceTree = "<group>"; };
+		F229F0C82870904300773BD6 /* AppDetailScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsCell.swift; sourceTree = "<group>"; };
 		F8114FBD22A3DBF400102830 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F8114FC022A3E5EE00102830 /* AppCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellModel.swift; sourceTree = "<group>"; };
 		F8114FC422A3E77500102830 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
@@ -226,6 +232,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F229F0C728708FD200773BD6 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */,
+				F229F0C82870904300773BD6 /* AppDetailScreenshotsCell.swift */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		F8114FBF22A3E5D500102830 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +253,7 @@
 		F8114FC222A3E74E00102830 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F229F0C728708FD200773BD6 /* Screenshots */,
 				F8114FC422A3E77500102830 /* AppDetailView.swift */,
 				DDA9736128662BAF00777DA8 /* AppDetailHeaderView.swift */,
 				F229F0BB28704A6000773BD6 /* AppDetailDescriptionView.swift */,
@@ -251,6 +267,7 @@
 				E0E1D3D0203C48D70011E01A /* AppDetailViewController.swift */,
 				DDA9736328662F7100777DA8 /* AppDetailHeaderViewController.swift */,
 				F229F0BF28704EFA00773BD6 /* AppDetailDescriptionViewController.swift */,
+				F229F0C32870868A00773BD6 /* AppDetailScreenshotsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -425,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA9736928663C2F00777DA8 /* SearchModuleBuilder.swift in Sources */,
+				F229F0C42870868A00773BD6 /* AppDetailScreenshotsViewController.swift in Sources */,
 				E0E1D399203AE62E0011E01A /* ITunesApp.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				DDA973672866374D00777DA8 /* SearchPresenter.swift in Sources */,
@@ -442,12 +460,14 @@
 				E0E1D39F203AE7400011E01A /* ImageDownloader.swift in Sources */,
 				F8114FBE22A3DBF400102830 /* SearchView.swift in Sources */,
 				F229F0C228705DEE00773BD6 /* DateFormatter+Extensions.swift in Sources */,
+				F229F0C92870904300773BD6 /* AppDetailScreenshotsCell.swift in Sources */,
 				E0E1D395203AE5E20011E01A /* ITunesSearchResult.swift in Sources */,
 				E0E1D392203AE58B0011E01A /* ITunesSearchService.swift in Sources */,
 				E0E1D2932034A3350011E01A /* AppDelegate.swift in Sources */,
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F229F0C028704EFA00773BD6 /* AppDetailDescriptionViewController.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */,
+				F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,9 +602,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97UL48L835;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSArchitecturesDemo/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ekireev.iOSArchitecturesDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = fafww1f13f3f3f23f;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -597,9 +618,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97UL48L835;
 				INFOPLIST_FILE = "$(SRCROOT)/iOSArchitecturesDemo/SupportingFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ekireev.iOSArchitecturesDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = fafww1f13f3f3f23f;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
