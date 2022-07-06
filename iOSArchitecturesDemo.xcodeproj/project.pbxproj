@@ -33,6 +33,10 @@
 		F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */; };
 		F229F0C92870904300773BD6 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C82870904300773BD6 /* ScreenshotsCell.swift */; };
 		F25125E52872FD3600E66A67 /* ScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25125E42872FD3600E66A67 /* ScreenshotsViewController.swift */; };
+		F27186C328759505000F2D2B /* SearchSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186C228759505000F2D2B /* SearchSongView.swift */; };
+		F27186C52875987C000F2D2B /* SearchSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186C42875987C000F2D2B /* SearchSongCell.swift */; };
+		F27186C82875997C000F2D2B /* SearchSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186C72875997C000F2D2B /* SearchSongViewController.swift */; };
+		F27186CD2875AF87000F2D2B /* SearchSongPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186CC2875AF87000F2D2B /* SearchSongPresenter.swift */; };
 		F8114FBE22A3DBF400102830 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FBD22A3DBF400102830 /* SearchView.swift */; };
 		F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FC022A3E5EE00102830 /* AppCellModel.swift */; };
 		F8114FC522A3E77500102830 /* AppDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8114FC422A3E77500102830 /* AppDetailView.swift */; };
@@ -71,6 +75,10 @@
 		F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsView.swift; sourceTree = "<group>"; };
 		F229F0C82870904300773BD6 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
 		F25125E42872FD3600E66A67 /* ScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewController.swift; sourceTree = "<group>"; };
+		F27186C228759505000F2D2B /* SearchSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongView.swift; sourceTree = "<group>"; };
+		F27186C42875987C000F2D2B /* SearchSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongCell.swift; sourceTree = "<group>"; };
+		F27186C72875997C000F2D2B /* SearchSongViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongViewController.swift; sourceTree = "<group>"; };
+		F27186CC2875AF87000F2D2B /* SearchSongPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongPresenter.swift; sourceTree = "<group>"; };
 		F8114FBD22A3DBF400102830 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		F8114FC022A3E5EE00102830 /* AppCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCellModel.swift; sourceTree = "<group>"; };
 		F8114FC422A3E77500102830 /* AppDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailView.swift; sourceTree = "<group>"; };
@@ -147,6 +155,8 @@
 		E0E1D2A52034A3560011E01A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				DDA9736828663C2F00777DA8 /* SearchModuleBuilder.swift */,
+				F27186C0287594A5000F2D2B /* SearchSong */,
 				F25125E62873049A00E66A67 /* Common Cell */,
 				F25125E12872FCDF00E66A67 /* Screenshots */,
 				E0E1D2A62034A36C0011E01A /* Search */,
@@ -161,7 +171,6 @@
 				DDA973652866373F00777DA8 /* Presenter */,
 				F8A97B3622498F0C00FB2C0E /* View */,
 				F8114FBF22A3E5D500102830 /* Controller */,
-				DDA9736828663C2F00777DA8 /* SearchModuleBuilder.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -282,6 +291,41 @@
 				F229F0C82870904300773BD6 /* ScreenshotsCell.swift */,
 			);
 			path = "Common Cell";
+			sourceTree = "<group>";
+		};
+		F27186C0287594A5000F2D2B /* SearchSong */ = {
+			isa = PBXGroup;
+			children = (
+				F27186CB2875AF71000F2D2B /* Presenter */,
+				F27186C628759958000F2D2B /* Controller */,
+				F27186C1287594D5000F2D2B /* View */,
+			);
+			path = SearchSong;
+			sourceTree = "<group>";
+		};
+		F27186C1287594D5000F2D2B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F27186C228759505000F2D2B /* SearchSongView.swift */,
+				F27186C42875987C000F2D2B /* SearchSongCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F27186C628759958000F2D2B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F27186C72875997C000F2D2B /* SearchSongViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F27186CB2875AF71000F2D2B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F27186CC2875AF87000F2D2B /* SearchSongPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		F8114FBF22A3E5D500102830 /* Controller */ = {
@@ -486,12 +530,15 @@
 			files = (
 				DDA9736928663C2F00777DA8 /* SearchModuleBuilder.swift in Sources */,
 				F229F0C42870868A00773BD6 /* AppDetailScreenshotsViewController.swift in Sources */,
+				F27186C82875997C000F2D2B /* SearchSongViewController.swift in Sources */,
+				F27186CD2875AF87000F2D2B /* SearchSongPresenter.swift in Sources */,
 				E0E1D399203AE62E0011E01A /* ITunesApp.swift in Sources */,
 				F8A97B352249898E00FB2C0E /* AppCell.swift in Sources */,
 				DDA973672866374D00777DA8 /* SearchPresenter.swift in Sources */,
 				F229F0BC28704A6000773BD6 /* AppDetailDescriptionView.swift in Sources */,
 				F8114FC522A3E77500102830 /* AppDetailView.swift in Sources */,
 				E0E1D387203AE45F0011E01A /* WebRequest.swift in Sources */,
+				F27186C52875987C000F2D2B /* SearchSongCell.swift in Sources */,
 				F8A1E03C2248382F00FE6448 /* Monads.swift in Sources */,
 				DDA9736428662F7100777DA8 /* AppDetailHeaderViewController.swift in Sources */,
 				F25125E52872FD3600E66A67 /* ScreenshotsViewController.swift in Sources */,
@@ -511,6 +558,7 @@
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F229F0C028704EFA00773BD6 /* AppDetailDescriptionViewController.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* AppCellModel.swift in Sources */,
+				F27186C328759505000F2D2B /* SearchSongView.swift in Sources */,
 				F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
