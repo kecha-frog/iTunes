@@ -9,8 +9,7 @@
 import UIKit
 
 class AppDetailHeaderView: UIView {
-    
-    // MARK: - Subviews
+    // MARK: - Visual Components
     
     private(set) lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -89,7 +88,8 @@ class AppDetailHeaderView: UIView {
             self.subtitleLabel.rightAnchor.constraint(equalTo: self.titleLabel.rightAnchor),
             self.openButton.leftAnchor.constraint(equalTo: self.imageView.rightAnchor, constant: 16.0),
             self.openButton.bottomAnchor.constraint(equalTo: self.imageView.bottomAnchor),
-            self.openButton.widthAnchor.constraint(equalToConstant: 80.0), self.openButton.heightAnchor.constraint(equalToConstant: 32.0),
+            self.openButton.widthAnchor.constraint(equalToConstant: 80.0),
+            self.openButton.heightAnchor.constraint(equalToConstant: 32.0),
             self.ratingLabel.topAnchor.constraint(equalTo: self.imageView.bottomAnchor, constant: 24.0),
             self.ratingLabel.leftAnchor.constraint(equalTo: self.imageView.leftAnchor),
             self.ratingLabel.widthAnchor.constraint(equalToConstant: 100.0),

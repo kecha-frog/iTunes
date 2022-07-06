@@ -9,11 +9,22 @@
 import UIKit
 
 class SearchModuleBuilder {
-    static func build() -> (UIViewController & SearchViewInput) {
+    
+    // MARK: - Static Methods
+
+    static func appBuild() -> (UIViewController & SearchViewInput) {
         let presenter = SearchPresenter()
         let viewController = SearchViewController(presenter: presenter)
         presenter.viewInput = viewController
         
+        return viewController
+    }
+
+    static func songBuild() -> (UIViewController & SearchSongViewInput) {
+        let presenter = SearchSongPresenter()
+        let viewController = SearchSongViewController(presenter: presenter)
+        presenter.viewInput = viewController
+
         return viewController
     }
 }
