@@ -1,5 +1,5 @@
 //
-//  SearchView.swift
+//  SearchAppView.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Evgeny Kireev on 02/06/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class SearchView: UIView {
+final class SearchAppView: UIView {
     
     // MARK: - Subviews
     

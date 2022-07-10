@@ -12,9 +12,9 @@ class SearchModuleBuilder {
     
     // MARK: - Static Methods
 
-    static func appBuild() -> (UIViewController & SearchViewInput) {
-        let presenter = SearchPresenter()
-        let viewController = SearchViewController(presenter: presenter)
+    static func appBuild() -> (UIViewController & SearchAppViewInput) {
+        let presenter = SearchAppPresenter()
+        let viewController = SearchAppViewController(presenter: presenter)
         presenter.viewInput = viewController
         
         return viewController

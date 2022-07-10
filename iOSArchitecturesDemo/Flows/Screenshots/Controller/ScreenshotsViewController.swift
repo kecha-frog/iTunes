@@ -10,23 +10,9 @@ import UIKit
 
 class ScreenshotsViewController: UIViewController {
 
-    // MARK: - Visual Components
-
-    private let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-
-        let spancing: CGFloat = 1
-
-        layout.minimumInteritemSpacing = spancing
-        layout.minimumLineSpacing = spancing
-        layout.scrollDirection = .horizontal
-
-        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        view.layer.cornerRadius = 25
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private var screenshotView: ScreenshotsView {
+        return self.view as! ScreenshotsView
+    }
 
     // MARK: - Private Properties
 
@@ -47,34 +33,22 @@ class ScreenshotsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func loadView() {
+        super.loadView()
+        self.view = ScreenshotsView(frame: view.frame)
+    }
+
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
         addTapGestureRecognizer()
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: ScreenshotsCell.identifier)
+        screenshotView.collectionView.delegate = self
+        screenshotView.collectionView.dataSource = self
+        screenshotView.collectionView.register(ScreenshotsCell.self, forCellWithReuseIdentifier: ScreenshotsCell.identifier)
     }
 
-    private func setupUI() {
-        view.backgroundColor = .lightGray.withAlphaComponent(0.7)
-        view.isOpaque = false
-
-        view.addSubview(collectionView)
-
-        let height = view.frame.height - 300
-        let width = height / 1.775
-
-
-        NSLayoutConstraint.activate([
-            collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            collectionView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            collectionView.widthAnchor.constraint(equalToConstant: width),
-            collectionView.heightAnchor.constraint(equalToConstant: height)
-        ])
-    }
+    
 
     // MARK: - Private Methods
 
@@ -86,7 +60,7 @@ class ScreenshotsViewController: UIViewController {
     @objc func actionTapView(_ gestureRecognizer: UITapGestureRecognizer){
         let touchPoint = gestureRecognizer.location(in: view)
 
-        guard !collectionView.frame.contains(touchPoint) else { return }
+        guard !screenshotView.collectionView.frame.contains(touchPoint) else { return }
 
         dismiss(animated: true)
     }

@@ -1,5 +1,5 @@
 //
-//  AppCellModel.swift
+//  SearchAppCellModel.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Evgeny Kireev on 02/06/2019.
@@ -8,16 +8,15 @@
 
 import Foundation
 
-struct AppCellModel {
+struct SearchAppCellModel {
     let title: String
     let subtitle: String?
     let rating: String?
 }
 
-final class AppCellModelFactory {
-    
-    static func cellModel(from model: ITunesApp) -> AppCellModel {
-        return AppCellModel(title: model.appName,
+final class SearchAppCellModelFactory {
+    static func cellModel(from model: ITunesApp) -> SearchAppCellModel {
+        return SearchAppCellModel(title: model.appName,
                             subtitle: model.company,
                             rating: model.averageRating >>- { "\($0)" })
     }
