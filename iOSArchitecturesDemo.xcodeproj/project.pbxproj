@@ -32,6 +32,7 @@
 		F229F0C42870868A00773BD6 /* AppDetailScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C32870868A00773BD6 /* AppDetailScreenshotsViewController.swift */; };
 		F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */; };
 		F229F0C92870904300773BD6 /* ScreenshotsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F229F0C82870904300773BD6 /* ScreenshotsCell.swift */; };
+		F2456D6D287AD4B7009CF13A /* ScreenshotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2456D6C287AD4B7009CF13A /* ScreenshotsView.swift */; };
 		F25125E52872FD3600E66A67 /* ScreenshotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25125E42872FD3600E66A67 /* ScreenshotsViewController.swift */; };
 		F27186C328759505000F2D2B /* SearchSongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186C228759505000F2D2B /* SearchSongView.swift */; };
 		F27186C52875987C000F2D2B /* SearchSongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27186C42875987C000F2D2B /* SearchSongCell.swift */; };
@@ -74,6 +75,7 @@
 		F229F0C32870868A00773BD6 /* AppDetailScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsViewController.swift; sourceTree = "<group>"; };
 		F229F0C5287089F400773BD6 /* AppDetailScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailScreenshotsView.swift; sourceTree = "<group>"; };
 		F229F0C82870904300773BD6 /* ScreenshotsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsCell.swift; sourceTree = "<group>"; };
+		F2456D6C287AD4B7009CF13A /* ScreenshotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsView.swift; sourceTree = "<group>"; };
 		F25125E42872FD3600E66A67 /* ScreenshotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotsViewController.swift; sourceTree = "<group>"; };
 		F27186C228759505000F2D2B /* SearchSongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongView.swift; sourceTree = "<group>"; };
 		F27186C42875987C000F2D2B /* SearchSongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSongCell.swift; sourceTree = "<group>"; };
@@ -155,11 +157,8 @@
 		E0E1D2A52034A3560011E01A /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				DDA9736828663C2F00777DA8 /* SearchModuleBuilder.swift */,
-				F27186C0287594A5000F2D2B /* SearchSong */,
-				F25125E62873049A00E66A67 /* Common Cell */,
 				F25125E12872FCDF00E66A67 /* Screenshots */,
-				E0E1D2A62034A36C0011E01A /* SearchApp */,
+				F2456D6B287AD425009CF13A /* Search */,
 				E0E1D2A72034A3780011E01A /* AppDetail */,
 			);
 			path = Flows;
@@ -253,6 +252,17 @@
 			path = Screenshots;
 			sourceTree = "<group>";
 		};
+		F2456D6B287AD425009CF13A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F25125E62873049A00E66A67 /* Common Cell */,
+				F27186C0287594A5000F2D2B /* SearchSong */,
+				E0E1D2A62034A36C0011E01A /* SearchApp */,
+				DDA9736828663C2F00777DA8 /* SearchModuleBuilder.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		F25125E02872FC7E00E66A67 /* Parent Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +283,7 @@
 		F25125E22872FCFD00E66A67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2456D6C287AD4B7009CF13A /* ScreenshotsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -558,6 +569,7 @@
 				E0E1D384203AE3620011E01A /* AppStartManager.swift in Sources */,
 				F229F0C028704EFA00773BD6 /* AppDetailDescriptionViewController.swift in Sources */,
 				F8114FC122A3E5EE00102830 /* SearchAppCellModel.swift in Sources */,
+				F2456D6D287AD4B7009CF13A /* ScreenshotsView.swift in Sources */,
 				F27186C328759505000F2D2B /* SearchSongView.swift in Sources */,
 				F229F0C6287089F400773BD6 /* AppDetailScreenshotsView.swift in Sources */,
 			);
