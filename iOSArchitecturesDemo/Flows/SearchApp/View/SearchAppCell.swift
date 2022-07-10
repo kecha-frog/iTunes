@@ -1,5 +1,5 @@
 //
-//  AppCell.swift
+//  SearchAppCell.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Evgeny Kireev on 01/03/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppCell: UITableViewCell {
+final class SearchAppCell: UITableViewCell {
     
     // MARK: - Subviews
     
@@ -50,7 +50,7 @@ final class AppCell: UITableViewCell {
     
     // MARK: - Methods
     
-    func configure(with cellModel: AppCellModel) {
+    func configure(with cellModel: SearchAppCellModel) {
         self.titleLabel.text = cellModel.title
         self.subtitleLabel.text = cellModel.subtitle
         self.ratingLabel.text = cellModel.rating

@@ -1,5 +1,5 @@
 //
-//  SearchPresenter.swift
+//  SearchAppPresenter.swift
 //  iOSArchitecturesDemo
 //
 //  Created by Alexander Rubtsov on 24.06.2022.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol SearchViewInput: class {
+protocol SearchAppViewInput: class {
     var searchResults: [ITunesApp] { get set }
     
     func showError(error: Error)
@@ -18,14 +18,14 @@ protocol SearchViewInput: class {
     func throbber(show: Bool)
 }
 
-protocol SearchViewOutput: class {
+protocol SearchAppViewOutput: class {
     func viewDidSearch(with query: String)
     func viewDidSelectApp(_ app: ITunesApp)
 }
 
-class SearchPresenter {
+class SearchAppPresenter {
     
-    weak var viewInput: (UIViewController & SearchViewInput)?
+    weak var viewInput: (UIViewController & SearchAppViewInput)?
     
     private let searchService = ITunesSearchService()
     
@@ -55,7 +55,7 @@ class SearchPresenter {
     }
 }
 
-extension SearchPresenter: SearchViewOutput {
+extension SearchAppPresenter: SearchAppViewOutput {
     func viewDidSearch(with query: String) {
         viewInput?.throbber(show: true)
         requestApps(with: query)
