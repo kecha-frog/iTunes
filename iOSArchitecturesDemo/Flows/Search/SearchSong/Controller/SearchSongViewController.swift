@@ -52,6 +52,16 @@ class SearchSongViewController: UIViewController {
         self.searchView.searchBar.delegate = self
         self.searchView.collectionView.register(SearchSongCell.self, forCellWithReuseIdentifier: SearchSongCell.identifier)
         self.searchView.collectionView.dataSource = self
+        self.searchView.collectionView.delegate = self
+    }
+}
+
+//MARK: - UICollectionViewDelegate
+
+extension SearchSongViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let song = searchResults [indexPath.item]
+        presenter.viewDidSelectSong(song)
     }
 }
 

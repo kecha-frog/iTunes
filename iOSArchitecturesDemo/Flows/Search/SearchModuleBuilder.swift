@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchModuleBuilder {
+final class SearchModuleBuilder {
     
     // MARK: - Static Methods
 
@@ -21,8 +21,13 @@ class SearchModuleBuilder {
     }
 
     static func songBuild() -> (UIViewController & SearchSongViewInput) {
-        let presenter = SearchSongPresenter()
+        let interactor = SearchSongInteractor()
+        let router = SearchSongRouter()
+        let presenter = SearchSongPresenter(interactor: interactor, router: router)
+
         let viewController = SearchSongViewController(presenter: presenter)
+        
+        router.viewController = viewController
         presenter.viewInput = viewController
 
         return viewController

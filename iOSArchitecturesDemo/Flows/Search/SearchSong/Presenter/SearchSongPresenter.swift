@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Protocol Interactor Input | Output
+
 protocol SearchSongViewInput: class {
     var searchResults: [ITunesSong] { get set }
 
@@ -18,9 +20,12 @@ protocol SearchSongViewInput: class {
 }
 
 protocol SearchSongViewOutput: class {
+    func getCellModel(from song: ITunesSong, completion: @escaping (_ cellModel: SearchSongCellModel)-> Void)
     func viewDidSearch(with query: String)
-    func getCellModel(from model: ITunesSong, completion: @escaping (_ cellModel: SearchSongCellModel)-> Void)
+    func viewDidSelectSong(_ song: ITunesSong)
 }
+
+// MARK: - Cell Model
 
 struct SearchSongCellModel {
     var trackName: String
@@ -37,60 +42,68 @@ class SearchSongPresenter {
     // MARK: - Private Properties
 
     private let searchService = ITunesSearchService()
-    private let looaderImage = ImageDownloader()
+    private let interactor: SearchSongInteractorInput
+    private let router: SearchSongRouterInput
 
-    // MARK: - Private Methods
+    // MARK: - Initialization
 
-    private func requestApps(with query: String) {
-        self.searchService.getSongs(forQuery: query) { [weak self] result in
-            guard let self = self else {
-                return
-            }
-
-            self.viewInput?.throbber(show: false)
-            result.withValue { apps in
-                guard !apps.isEmpty else {
-                    self.viewInput?.showNoResults()
-                    return
-                }
-                self.viewInput?.hideNoResults()
-                self.viewInput?.searchResults = apps
-            } .withError {
-                self.viewInput?.showError(error: $0)
-            }
-        }
+    init(interactor: SearchSongInteractorInput, router: SearchSongRouterInput){
+        self.interactor = interactor
+        self.router = router
     }
 }
 
 // MARK: - SearchSongViewOutput
 
 extension SearchSongPresenter: SearchSongViewOutput {
-    func viewDidSearch(with query: String) {
-        viewInput?.throbber(show: true)
-        requestApps(with: query)
+    func getCellModel(from song: ITunesSong, completion: @escaping (SearchSongCellModel) -> Void) {
+        DispatchQueue.main.async {
+            self.interactor.convertToCellModel(from: song, completion: completion)
+        }
     }
 
-    func getCellModel(from model: ITunesSong, completion: @escaping (_ cellModel: SearchSongCellModel)-> Void)  {
-        
-        guard let url = model.artwork else {
-            let cell = SearchSongCellModel(trackName: model.trackName,
-                                           artistName: model.artistName,
-                                           image: nil)
-            DispatchQueue.main.async {
-                completion(cell)
-            }
+    func viewDidSearch(with query: String) {
+        viewInput?.throbber(show: true)
 
-            return
-        }
+        if #available(iOS 13.0, *) {
+            Task{ @MainActor [weak self] in
+                guard let self = self else { return }
 
-        // Из за того что сделан на замыкание, пришлось делать черз замыкание.
-        looaderImage.getImage(fromUrl: url) { image, error in
-            let cell = SearchSongCellModel(trackName: model.trackName,
-                                           artistName: model.artistName,
-                                           image: image)
-            DispatchQueue.main.async {
-                completion(cell)
+                let result = await interactor.requestSong(with: query)
+                self.viewInput?.throbber(show: false)
+
+                result.withValue { apps in
+                    guard !apps.isEmpty else {
+                        self.viewInput?.showNoResults()
+                        return
+                    }
+                    self.viewInput?.hideNoResults()
+                    self.viewInput?.searchResults = apps
+                } .withError {
+                    self.viewInput?.showError(error: $0)
+                }
+            }
+        } else {
+            interactor.requestSong(with: query) { [weak self] result in
+                guard let self = self else { return }
+
+                self.viewInput?.throbber(show: false)
+
+                result.withValue { apps in
+                    guard !apps.isEmpty else {
+                        self.viewInput?.showNoResults()
+                        return
+                    }
+                    self.viewInput?.hideNoResults()
+                    self.viewInput?.searchResults = apps
+                } .withError {
+                    self.viewInput?.showError(error: $0)
+                }
             }
         }
+    }
+
+    func viewDidSelectSong(_ song: ITunesSong) {
+        router.openSong(song)
     }
 }
